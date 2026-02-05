@@ -17,6 +17,9 @@ K = 13 -> Test Accuracy = 0.54
 K = 14 -> Test Accuracy = 0.50
 K = 15 -> Test Accuracy = 0.52
 
+<img width="348" height="427" alt="Ekran görüntüsü 2026-02-05 095542" src="https://github.com/user-attachments/assets/8912d8e4-8b79-4a17-ab2c-48608ff099af" />
+
+
 
 Different K values ranging from 1 to 15 are evaluated. The highest classification accuracy is achieved when **K = 1**, and this value is selected as the optimal number of neighbors for the model.
 
