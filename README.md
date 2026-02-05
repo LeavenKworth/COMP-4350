@@ -7,8 +7,10 @@ After selecting the best-performing KNN model with **K = 1**, the baseline perfo
 The following output shows the incorrect predictions produced by the KNN model before applying any rule-based corrections.
 
 
-
 Baseline Accuracy: **%76**
+
+<img width="818" height="590" alt="Ekran görüntüsü 2026-02-05 102400" src="https://github.com/user-attachments/assets/fd255598-0848-44af-a006-bc5ede60ae3f" />
+
 
 ---
 
@@ -25,6 +27,8 @@ To correct these cases, samples predicted as male with **height below 57 cm** an
 
 **Accuracy after Rule 1:** **%78**
 
+<img width="997" height="570" alt="after rule 1" src="https://github.com/user-attachments/assets/7b73640f-0827-4e62-ba73-40cf134c7773" />
+
 
 
 ---
@@ -35,6 +39,8 @@ In the **70–74 cm** height range, several samples with relatively large head c
 This region represents a boundary area where the KNN model struggled to separate classes.
 
 **Accuracy after Rule 1 and Rule 2:** **%80**
+
+<img width="953" height="545" alt="after 1 and 2" src="https://github.com/user-attachments/assets/4104da79-cacc-4039-a959-ecdec5483208" />
 
 
 
@@ -47,6 +53,8 @@ A carefully tuned threshold was applied to correct these cases while preserving 
 
 **Accuracy after Rule 1, Rule 2 and Rule3 :** **%84**
 
+<img width="1017" height="546" alt="after 1,2 and 3" src="https://github.com/user-attachments/assets/a161125b-16b7-448a-ae3f-2d5c66d286e6" />
+
 
 
 ---
@@ -55,7 +63,11 @@ A carefully tuned threshold was applied to correct these cases while preserving 
 
 After applying all rule-based corrections, the final model performance was obtained as follows:
 
-**Final Accuracy (KNN + Rules):** **XX.XX**
+**Final Accuracy (KNN + Rules):** **%84**
+
+<img width="991" height="535" alt="Ekran görüntüsü 2026-02-05 102415" src="https://github.com/user-attachments/assets/cc5c803b-16b6-4358-a3f6-e5969c0b0206" />
+
+
 
 
 
