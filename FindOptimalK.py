@@ -34,7 +34,3 @@ results["True Gender"] = y_test.values
 results["Prediction"] = y_pred
 
 wrong_predictions = results[results["True Gender"] != results["Prediction"]]
-
-print("\nMisclassified Samples:")
-# tablefmt='psql' creates a clean table format
-print(tabulate(wrong_predictions, headers='keys', tablefmt='psql'))
