@@ -27,8 +27,9 @@ To correct these cases, samples predicted as male with **height below 57 cm** an
 
 **Accuracy after Rule 1:** **%78**
 
-<img width="997" height="570" alt="after rule 1" src="https://github.com/user-attachments/assets/7b73640f-0827-4e62-ba73-40cf134c7773" />
+<img width="945" height="631" alt="Rule1" src="https://github.com/user-attachments/assets/700326d6-d082-4979-b82a-44f347643d3f" />
 
+Corrected samples: 12
 
 
 ---
@@ -40,8 +41,9 @@ This region represents a boundary area where the KNN model struggled to separate
 
 **Accuracy after Rule 1 and Rule 2:** **%80**
 
-<img width="953" height="545" alt="after 1 and 2" src="https://github.com/user-attachments/assets/4104da79-cacc-4039-a959-ecdec5483208" />
+<img width="952" height="651" alt="Rule1 and Rule2" src="https://github.com/user-attachments/assets/4807eb1f-5f55-4e47-9773-2b3f78784c2a" />
 
+Corrected samples: 12, 37, 45, 44
 
 
 ---
@@ -53,7 +55,9 @@ A carefully tuned threshold was applied to correct these cases while preserving 
 
 **Accuracy after Rule 1, Rule 2 and Rule3 :** **%84**
 
-<img width="1017" height="546" alt="after 1,2 and 3" src="https://github.com/user-attachments/assets/a161125b-16b7-448a-ae3f-2d5c66d286e6" />
+<img width="1005" height="657" alt="Rule1, Rule2 and Rule3" src="https://github.com/user-attachments/assets/62bf88fc-bea9-421a-8600-31f4621710ff" />
+
+Corrected samples: 12, 37, 45, 44, 74, 63, 75
 
 
 
@@ -65,10 +69,23 @@ After applying all rule-based corrections, the final model performance was obtai
 
 **Final Accuracy (KNN + Rules):** **%84**
 
-<img width="991" height="535" alt="Ekran görüntüsü 2026-02-05 102415" src="https://github.com/user-attachments/assets/cc5c803b-16b6-4358-a3f6-e5969c0b0206" />
+<img width="767" height="541" alt="Final" src="https://github.com/user-attachments/assets/2f595e1d-e7c9-4c99-8961-483cd1e7875a" />
 
+**Corrected Samples After Rules**
 
+The following samples were incorrectly classified by the KNN (K=1) model but were successfully corrected after applying the rule-based post-processing:
 
+**Corrected samples:**
+12, 37, 45, 44, 74, 63, 75
+
+For these samples, the final predictions match the true gender labels.
+
+**Remaining Misclassified Samples**
+
+Despite applying all defined rules, the following samples remain incorrectly classified:
+
+Remaining samples:
+159, 22, 189, 129, 8
 
 
 ---
