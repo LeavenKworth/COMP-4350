@@ -106,15 +106,73 @@ else:
 # --------------------------------------------------
 # 7. REMAINING MISCLASSIFICATIONS
 # --------------------------------------------------
-remaining_errors = comparison_df[
-    comparison_df["True Gender"] != comparison_df["Rule-Based Prediction"]
+initial_misclassified = comparison_df[
+    comparison_df["True Gender"] != comparison_df["KNN Prediction"]
 ]
 
-print("\nRemaining Misclassified Samples:")
+print("\nFinal Misclassified Samples After All Rules:")
 display_columns = [
-    "Başçevre", "Boy",
+    "Başçevre",
+    "Boy",
+    "True Gender",
+    "Rule-Based Prediction"
+]
+
+print(tabulate(
+    initial_misclassified[display_columns],
+    headers="keys",
+    tablefmt="psql"
+))
+
+# --------------------------------------------------
+# 8 CORRECTED SAMPLES (Incorrect → Correct)
+# --------------------------------------------------
+corrected_samples = comparison_df[
+    (comparison_df["True Gender"] != comparison_df["KNN Prediction"]) &
+    (comparison_df["True Gender"] == comparison_df["Rule-Based Prediction"])
+]
+
+print("\nSamples Corrected by Rule-Based Post-Processing:")
+display_columns = [
+    "Başçevre",
+    "Boy",
     "True Gender",
     "KNN Prediction",
     "Rule-Based Prediction"
 ]
-print(tabulate(remaining_errors[display_columns], headers="keys", tablefmt="psql"))
+
+if len(corrected_samples) == 0:
+    print("No samples were corrected by the rules.")
+else:
+    print(tabulate(
+        corrected_samples[display_columns],
+        headers="keys",
+        tablefmt="psql"
+    ))
+# --------------------------------------------------
+# 9. REGRESSION ERRORS (Correct → Incorrect)
+# --------------------------------------------------
+regression_errors = comparison_df[
+    (comparison_df["True Gender"] == comparison_df["KNN Prediction"]) &
+    (comparison_df["True Gender"] != comparison_df["Rule-Based Prediction"])
+]
+
+print("\nSamples That Became Incorrect After Rules (Regression Errors):")
+display_columns = [
+    "Başçevre",
+    "Boy",
+    "True Gender",
+    "KNN Prediction",
+    "Rule-Based Prediction"
+]
+
+if len(regression_errors) == 0:
+    print("No regression errors detected.")
+else:
+    print(tabulate(
+        regression_errors[display_columns],
+        headers="keys",
+        tablefmt="psql"
+    ))
+
+
